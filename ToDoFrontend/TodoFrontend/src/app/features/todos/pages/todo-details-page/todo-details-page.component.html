@@ -1,0 +1,13 @@
+<div class="todo-details-page">
+    <app-todo-form 
+    *ngIf="(mode$ | async) === 'create'"
+    (submitForm)="createTodo($event)">
+  </app-todo-form>
+
+  <app-todo-form 
+    *ngIf="(mode$ | async) === 'edit'"
+    [todo]="todo$ | async"
+    (submitForm)="updateTodo($event)">
+  </app-todo-form>
+    <!-- <router-outlet></router-outlet> -->
+</div>
